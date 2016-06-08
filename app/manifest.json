@@ -1,8 +1,8 @@
 {
-  "name": "Telegram",
-  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
+  "name": "Chat TagPoint",
+  "description": "TagPoint Powered by Telegram",
   "version": "0.5.4",
-  "short_name": "Telegram",
+  "short_name": "TagPoint",
   "manifest_version": 2,
   "app": {
     "background": {
