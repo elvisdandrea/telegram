@@ -9,6 +9,8 @@
 //    }
 //  } catch (e) {console.error('CJ protection', e)};
 
+  document.documentElement.style.display = 'block';
+
   window.safeConfirm = function (params, callback) {
     if (typeof params === 'string') {
       params = {message: params};
