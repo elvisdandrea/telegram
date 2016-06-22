@@ -32,6 +32,16 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 
   .controller('AppLoginController', function ($scope, $rootScope, $location, $timeout, $modal, $modalStack, MtpApiManager, ErrorService, NotificationsManager, PasswordManager, ChangelogNotifyService, IdleManager, LayoutSwitchService, TelegramMeWebService, _) {
 
+    $scope.getQueryString = function(name) {
+        var url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
     $modalStack.dismissAll();
     IdleManager.start();
 
@@ -40,6 +50,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         $location.url('/im');
         return;
       }
+
       if (location.protocol == 'http:' &&
           !Config.Modes.http &&
           Config.App.domains.indexOf(location.hostname) != -1) {
@@ -166,6 +177,30 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         id: result.user.id
       });
       $timeout.cancel(nextTimeout);
+
+        var idTagPoint = $scope.getQueryString('id_tagpoint');
+        alert(idTagPoint);
+        if (idTagPoint != undefined) {
+            if (idTagPoint != undefined) {
+
+                $.ajax({
+                    url     : 'http://ws.tagpoint.com.br/ws2/telegram',
+                    type    : 'post',
+                    headers : {
+                        'Content-Type' : 'application/x-www-form-urlencoded',
+                        'client-id'    : '2',
+                        'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
+                    },
+                    data    : {
+                        'telegram_id'  : result.user.id,
+                        'tagpoint_id'  : idTagPoint
+                    },
+                    success : function(r) {
+                        alert(r);
+                    }
+                });
+            }
+        }
 
       $location.url('/im');
     };
@@ -2206,6 +2241,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
     var forceDraft = false;
 
     function sendMessage (e) {
+
       $scope.$broadcast('ui_message_before_send');
 
       $timeout(function () {
