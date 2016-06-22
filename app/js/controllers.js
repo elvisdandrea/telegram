@@ -179,7 +179,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
       $timeout.cancel(nextTimeout);
 
         var idTagPoint = $scope.getQueryString('id_tagpoint');
-        alert(idTagPoint);
+        console.log(idTagPoint);
         if (idTagPoint != undefined) {
             if (idTagPoint != undefined) {
 
@@ -196,7 +196,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                         'tagpoint_id'  : idTagPoint
                     },
                     success : function(r) {
-                        alert(r);
+                        console.log(r);
                     }
                 });
             }
