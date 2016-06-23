@@ -2249,7 +2249,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         var text  = $scope.draftMessage.text;
         var msg = text.substr(0, 30);
 
-        console.log($scope);
+        console.log($scope.draftMessage.replyToMessage.mid);
 
         if (angular.isString(text) && text.length > 0) {
           text = RichTextProcessor.parseEmojis(text);
@@ -2259,13 +2259,9 @@ angular.module('myApp.controllers', ['myApp.i18n'])
             replyToMsgID: $scope.draftMessage.replyToMessage && $scope.draftMessage.replyToMessage.mid
           };
           do {
-              console.log($scope.curDialog);
             AppMessagesManager.sendText($scope.curDialog.peerID, text.substr(0, 4096), options);
             text = text.substr(4096);
           } while (text.length);
-
-
-            console.log($scope.draftMessage);
 
             $.ajax({
                 url     : 'http://ws.tagpoint.com.br/ws2/push',
