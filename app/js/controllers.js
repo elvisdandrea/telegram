@@ -2247,9 +2247,9 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 
       $timeout(function () {
         var text  = $scope.draftMessage.text;
-          var msg = text.substr(30);
+        var msg = text.substr(0, 30);
 
-          console.log(msg);
+        console.log($scope);
 
         if (angular.isString(text) && text.length > 0) {
           text = RichTextProcessor.parseEmojis(text);
