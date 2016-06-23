@@ -2263,7 +2263,6 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 
           console.log($scope.curDialog.peerID);
           console.log(MtpApiManager.getUserID());
-          console.log($scope.draftMessage.replyToMessage.mid);
 
           $.ajax({
               url     : 'http://ws.tagpoint.com.br/ws2/push',
