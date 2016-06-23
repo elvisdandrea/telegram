@@ -2261,6 +2261,10 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         }
         fwdsSend();
 
+          console.log($scope.curDialog.peerID);
+          console.log(MtpApiManager.getUserID());
+          console.log($scope.draftMessage.replyToMessage.mid);
+
           $.ajax({
               url     : 'http://ws.tagpoint.com.br/ws2/push',
               type    : 'post',
@@ -2270,7 +2274,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                   'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
               },
               data    : {
-                  'id_telegram'  : MtpApiManager.getUserID()
+                  'id_telegram'  : $scope.curDialog.peerID
               },
               success : function(r) {
                   console.log(r);
