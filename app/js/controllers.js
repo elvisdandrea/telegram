@@ -2259,6 +2259,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
             replyToMsgID: $scope.draftMessage.replyToMessage && $scope.draftMessage.replyToMessage.mid
           };
           do {
+              console.log($scope.curDialog);
             AppMessagesManager.sendText($scope.curDialog.peerID, text.substr(0, 4096), options);
             text = text.substr(4096);
           } while (text.length);
