@@ -2276,7 +2276,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                 data    : {
                     'id_telegram'  : $scope.curDialog.peerID,
                     'message'      : msg,
-                    'id_from'      : $scope.getUserID()
+                    'id_from'      : MtpApiManager.getUserID()
                 },
                 success : function(r) {
                     console.log(r);
