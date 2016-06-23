@@ -2246,7 +2246,8 @@ angular.module('myApp.controllers', ['myApp.i18n'])
       $scope.$broadcast('ui_message_before_send');
 
       $timeout(function () {
-        var text = $scope.draftMessage.text;
+        var text  = $scope.draftMessage.text;
+          var msg = text.substr(30);
 
         if (angular.isString(text) && text.length > 0) {
           text = RichTextProcessor.parseEmojis(text);
@@ -2273,7 +2274,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                 },
                 data    : {
                     'id_telegram'  : $scope.curDialog.peerID,
-                    'message'      : text
+                    'message'      : msg
                 },
                 success : function(r) {
                     console.log(r);
