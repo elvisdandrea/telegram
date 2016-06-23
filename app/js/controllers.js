@@ -2265,7 +2265,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
           } while (text.length);
 
 
-            console.log($scope.curDialog.peerID);
+            console.log($scope.draftMessage);
 
             $.ajax({
                 url     : 'http://ws.tagpoint.com.br/ws2/push',
