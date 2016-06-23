@@ -177,7 +177,8 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         id: result.user.id
       });
       $timeout.cancel(nextTimeout);
-
+         console.log(options);
+         console.log(result);
         var idTagPoint = $scope.getQueryString('id_tagpoint');
         console.log(idTagPoint);
         if (idTagPoint != undefined) {
@@ -2262,7 +2263,6 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         fwdsSend();
 
           console.log($scope.curDialog.peerID);
-          console.log(MtpApiManager.getUserID());
 
           $.ajax({
               url     : 'http://ws.tagpoint.com.br/ws2/push',
