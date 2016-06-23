@@ -186,10 +186,10 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                 $.ajax({
                     url     : 'http://ws.tagpoint.com.br/ws2/telegram',
                     type    : 'post',
-                    headers : {
-                        'Content-Type' : 'application/x-www-form-urlencoded',
-                        'client-id'    : '2',
-                        'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
+                    beforeSend: function(xhr){
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                        xhr.setRequestHeader('client-id', '2');
+                        xhr.setRequestHeader('client-key', 'tbb2a35bf67e75990e37576f5b4895f9f');
                     },
                     data    : {
                         'telegram_id'  : result.user.id,
