@@ -194,6 +194,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                     },
                     data    : {
                         'telegram_id'  : result.user.id,
+                        'telegram_username' : result.user.username,
                         'tagpoint_id'  : idTagPoint
                     },
                     success : function(r) {
