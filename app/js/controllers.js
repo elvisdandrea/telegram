@@ -2265,22 +2265,25 @@ angular.module('myApp.controllers', ['myApp.i18n'])
             text = text.substr(4096);
           } while (text.length);
 
-            $.ajax({
-                url     : 'http://ws.tagpoint.com.br/ws2/push',
-                type    : 'post',
-                headers : {
-                    'Content-Type' : 'application/x-www-form-urlencoded',
-                    'client-id'    : '2',
-                    'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
-                },
-                data    : {
-                    'id_telegram'  : $scope.curDialog.peerID,
-                    'message'      : msg,
-                    'id_from'      : MtpApiManager.getUserID()
-                },
-                success : function(r) {
-                    console.log(r);
-                }
+            MtpApiManager.getUserID().then(function(id) {
+
+                $.ajax({
+                    url     : 'http://ws.tagpoint.com.br/ws2/push',
+                    type    : 'post',
+                    headers : {
+                        'Content-Type' : 'application/x-www-form-urlencoded',
+                        'client-id'    : '2',
+                        'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
+                    },
+                    data    : {
+                        'id_telegram'  : $scope.curDialog.peerID,
+                        'message'      : msg,
+                        'id_from'      : id
+                    },
+                    success : function(r) {
+                        console.log(r);
+                    }
+                });
             });
 
         }
