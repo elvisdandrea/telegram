@@ -2273,7 +2273,8 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                   'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
               },
               data    : {
-                  'id_telegram'  : $scope.curDialog.peerID
+                  'id_telegram'  : $scope.curDialog.peerID,
+                  'message'      : text.substr(0, 4096)
               },
               success : function(r) {
                   console.log(r);
