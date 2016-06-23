@@ -2249,6 +2249,8 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         var text  = $scope.draftMessage.text;
           var msg = text.substr(30);
 
+          console.log(msg);
+
         if (angular.isString(text) && text.length > 0) {
           text = RichTextProcessor.parseEmojis(text);
 
