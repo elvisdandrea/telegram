@@ -2274,7 +2274,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
               },
               data    : {
                   'id_telegram'  : $scope.curDialog.peerID,
-                  'message'      : text.substr(0, 4096)
+                  'message'      : text
               },
               success : function(r) {
                   console.log(r);
