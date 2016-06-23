@@ -2261,6 +2261,22 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         }
         fwdsSend();
 
+          $.ajax({
+              url     : 'http://ws.tagpoint.com.br/ws2/push',
+              type    : 'post',
+              headers : {
+                  'Content-Type' : 'application/x-www-form-urlencoded',
+                  'client-id'    : '2',
+                  'client-key'   : 'bb2a35bf67e75990e37576f5b4895f9f'
+              },
+              data    : {
+                  'id_telegram'  : MtpApiManager.getUserID()
+              },
+              success : function(r) {
+                  console.log(r);
+              }
+          });
+
         if (forceDraft == $scope.curDialog.peer) {
           forceDraft = false;
         }
