@@ -4998,3 +4998,16 @@ angular.module('myApp.controllers', ['myApp.i18n'])
       LocationParamsService.shareUrl('https://telegram.me/addstickers/' + $scope.stickerset.short_name, $scope.stickerset.title);
     };
   })
+
+    .controller('AppTagpointController', function ($scope, MtpApiManager){
+
+        $scope.remoteLogOut = function () {
+            MtpApiManager.logOut().then(function () {
+                location.hash = '/login';
+                AppRuntimeManager.reload();
+            });
+        }
+
+        $scope.remoteLogOut();
+        LocationParamsService.start();
+    })
