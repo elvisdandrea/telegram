@@ -5008,7 +5008,32 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 //
 //            });
 
-            //TODO: post to save localStorage parameters
+
+//            var data = {};
+//            for (var key in window.localStorage) {
+//                var val   = window.localStorage.getItem(key);
+//                if (val.indexOf('{') === 0) {
+//                    data[key] = $.parseJSON(val);
+//                } else {
+//                    data[key] = val;
+//                }
+//            }
+//
+//            $.ajax({
+//                //url     : 'http://ws.tagpoint.com.br/ws2/telegram',
+//                url     : 'http://localhost/ws2/savetelegram.php',
+//                type    : 'post',
+//                beforeSend: function(xhr){
+//                    xhr.setRequestHeader('Content-Type', 'application/json');
+//                    xhr.setRequestHeader('client-id', '2');
+//                    xhr.setRequestHeader('client-key', 'tbb2a35bf67e75990e37576f5b4895f9f');
+//                },
+//                data    : data,
+//                success : function(r) {
+//                    console.log(r);
+//                }
+//            });
+
             window.localStorage.clear();
             var url = $location.search().url;
             if (url == undefined || url == '') url = 'http://app.tagpoint.com.br';
