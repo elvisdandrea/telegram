@@ -48,7 +48,7 @@ config(['$locationProvider', '$routeProvider', '$compileProvider', 'StorageProvi
   $routeProvider.when('/', {templateUrl: templateUrl('welcome'), controller: 'AppWelcomeController'});
   $routeProvider.when('/login', {templateUrl: templateUrl('login'), controller: 'AppLoginController'});
   $routeProvider.when('/im', {templateUrl: templateUrl('im'), controller: 'AppIMController', reloadOnSearch: false});
-  $routeProvider.when('/out', {templateUrl: templateUrl('login'), controller: 'AppTagpointController', reloadOnSearch: false});
+  $routeProvider.when('/out', {templateUrl: templateUrl('remote_logout'), controller: 'AppTagpointController', reloadOnSearch: false});
   $routeProvider.otherwise({redirectTo: '/'});
 
 }]);

@@ -4999,15 +4999,22 @@ angular.module('myApp.controllers', ['myApp.i18n'])
     };
   })
 
-    .controller('AppTagpointController', function ($scope, MtpApiManager){
+    .controller('AppTagpointController', function ($scope, $location, MtpApiManager){
 
         $scope.remoteLogOut = function () {
-            MtpApiManager.logOut().then(function () {
-                location.hash = '/login';
-                AppRuntimeManager.reload();
-            });
+
+
+//            MtpApiManager.logOut().then(function (){
+//
+//            });
+
+            //TODO: post to save localStorage parameters
+            window.localStorage.clear();
+            var url = $location.search().url;
+            if (url == undefined || url == '') url = 'http://app.tagpoint.com.br';
+            window.location = url;
         }
 
         $scope.remoteLogOut();
-        LocationParamsService.start();
+//        LocationParamsService.start();
     })
